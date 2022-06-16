@@ -6,7 +6,7 @@ export default function Navbar(props) {
     <>
       {/* NAVBAR USING BOOTSTRAP  */}
 
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
           {props.title}
         </a>
@@ -42,10 +42,7 @@ export default function Navbar(props) {
               placeholder="Search"
               aria-label="Search"
             />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
+            <button className="btn btn-primary my-2 my-sm-0" type="submit">
               Search
             </button>
           </form>
