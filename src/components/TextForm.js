@@ -14,6 +14,18 @@ export default function TextForm(props) {
     setText(newText);
   };
 
+  // For Clearing text
+  const handleClearClick = () => {
+    let newText = "";
+    setText(newText);
+  };
+
+  // For Copying text to the clipboard
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(text);
+    alert("Copied");
+  };
+
   const handleOnChange = (event) => {
     // console.log("On change");
     setText(event.target.value);
@@ -41,11 +53,19 @@ export default function TextForm(props) {
         </div>
         {/* // here handleUpClick function is called which is actually used for upating the state */}
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>
-          Convert to Uppercase
+          Uppercase
         </button>
 
         <button className="btn btn-primary mx-1" onClick={handleLoClick}>
-          Convert to Lowercase
+          Lowercase
+        </button>
+
+        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+          Clear
+        </button>
+
+        <button className="btn btn-primary mx-1" onClick={handleCopyClick}>
+          Copy to clipboard
         </button>
       </div>
 
