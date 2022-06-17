@@ -20,10 +20,16 @@ export default function TextForm(props) {
     setText(newText);
   };
 
-  // For Copying text to the clipboard
-  const handleCopyClick = () => {
+  // For Copying text
+  const handleCopy = () => {
     navigator.clipboard.writeText(text);
     alert("Copied");
+  };
+
+  // For Removing Extra Spaces
+  const handleExtraSpace = () => {
+    let newText = text.split(/[ ]+/); // Used javascript regex
+    setText(newText.join(" "));
   };
 
   const handleOnChange = (event) => {
@@ -40,11 +46,21 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          color: props.mode === "dark" ? "white" : "#192734",
+        }}
+      >
         <h1> {props.heading} </h1>
         <div className="mb-3">
           <textarea
             className="form-control"
+            // here we have used double urly braces bcz we are creating object inside javascript here
+            style={{
+              backgroundColor: props.mode === "dark" ? "#192734" : "white",
+              color: props.mode === "dark" ? "white" : "#192734",
+            }}
             value={text}
             onChange={handleOnChange}
             id="myBox"
@@ -60,16 +76,25 @@ export default function TextForm(props) {
           Lowercase
         </button>
 
+        <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>
+          Remove Extra Spaces
+        </button>
+
+        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+          Copy text
+        </button>
+
         <button className="btn btn-primary mx-1" onClick={handleClearClick}>
           Clear
         </button>
-
-        <button className="btn btn-primary mx-1" onClick={handleCopyClick}>
-          Copy to clipboard
-        </button>
       </div>
 
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{
+          color: props.mode === "dark" ? "white" : "#192734",
+        }}
+      >
         <h2>Your text summary</h2>
         {/* here split will give an array which will have words */}
         <p>
@@ -77,7 +102,11 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * text.split(" ").length} Minutes to read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>
+          {text.length > 0
+            ? text
+            : "Enter something in the textbox above to preview it here!!"}
+        </p>
       </div>
     </>
   );

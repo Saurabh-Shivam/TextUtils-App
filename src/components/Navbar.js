@@ -6,7 +6,9 @@ export default function Navbar(props) {
     <>
       {/* NAVBAR USING BOOTSTRAP  */}
 
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      >
         <a className="navbar-brand" href="/">
           {props.title}
         </a>
@@ -47,6 +49,28 @@ export default function Navbar(props) {
               Search
             </button>
           </form> */}
+
+          {/* DARKMODE TOGGLE BUTTON USING BOOTSTRAP */}
+
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+          >
+            <input
+              className="form-check-input"
+              onClick={props.toggleMode}
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Enable {props.mode === "light" ? "Dark" : "Light"}Mode
+            </label>
+          </div>
         </div>
       </nav>
     </>
