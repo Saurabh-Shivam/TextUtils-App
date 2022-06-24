@@ -57,7 +57,7 @@ export default function TextForm(props) {
           color: props.mode === "dark" ? "white" : "#192734",
         }}
       >
-        <h1> {props.heading} </h1>
+        <h2 className="mb-4"> {props.heading} </h2>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -73,23 +73,43 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         {/* // here handleUpClick function is called which is actually used for upating the state */}
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleUpClick}
+        >
           Uppercase
         </button>
 
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleLoClick}
+        >
           Lowercase
         </button>
 
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleExtraSpace}
+        >
           Remove Extra Spaces
         </button>
 
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleCopy}
+        >
           Copy text
         </button>
 
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleClearClick}
+        >
           Clear
         </button>
       </div>
@@ -103,15 +123,22 @@ export default function TextForm(props) {
         <h2>Your text summary</h2>
         {/* here split will give an array which will have words */}
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes to read</p>
-        <h2>Preview</h2>
         <p>
-          {text.length > 0
-            ? text
-            : "Enter something in the textbox above to preview it here!!"}
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes to read
         </p>
+        <h2>Preview</h2>
+        <p>{text.length > 0 ? text : "Nothing to preview!!"}</p>
       </div>
     </>
   );
