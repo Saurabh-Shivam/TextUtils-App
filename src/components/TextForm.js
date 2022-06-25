@@ -122,14 +122,18 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         {/* here split will give an array which will have words */}
+        {/* This will show number of words in the line */}
         <p>
           {
-            text.split(" ").filter((element) => {
+            /* \s = Any time of white space including new lines */
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
           words and {text.length} characters
         </p>
+
+        {/* This will show time to read the line */}
         <p>
           {0.008 *
             text.split(" ").filter((element) => {

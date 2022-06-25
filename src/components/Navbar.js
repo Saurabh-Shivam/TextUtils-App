@@ -27,7 +27,7 @@ export default function Navbar(props) {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home <span className="sr-only">(current)</span>
               </Link>
@@ -39,8 +39,8 @@ export default function Navbar(props) {
             </li>
           </ul>
 
-          {/* Adding multiple color mode buttons */}
-          <div
+          {/* ADDING MULTIPLE COLOR MODE BUTTONS */}
+          {/* <div
             className="bg-primary rounded mx-2"
             onClick={() => {
               props.toggleMode("primary");
@@ -111,7 +111,7 @@ export default function Navbar(props) {
               cursor: "pointer",
               border: "2px solid",
             }}
-          ></div>
+          ></div> */}
 
           {/* <form className="form-inline my-2 my-lg-0">
             <input
@@ -127,7 +127,7 @@ export default function Navbar(props) {
 
           {/* DARKMODE TOGGLE BUTTON USING BOOTSTRAP */}
 
-          {/* <div
+          <div
             className={`form-check form-switch text-${
               props.mode === "light" ? "dark" : "light"
             }`}
@@ -142,11 +142,11 @@ export default function Navbar(props) {
             <label
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
-            > */}
-          {/* Enable {props.mode === "light" ? "Dark" : "Light"}Mode */}
-          {/* Toggle Mode
+            >
+              Enable {props.mode === "light" ? "Dark" : "Light"}Mode
+              {/* Toggle Mode */}
             </label>
-          </div> */}
+          </div>
         </div>
       </nav>
     </>
