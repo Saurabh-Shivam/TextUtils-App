@@ -39,6 +39,80 @@ export default function Navbar(props) {
             </li>
           </ul>
 
+          {/* Adding multiple color mode buttons */}
+          <div
+            className="bg-primary rounded mx-2"
+            onClick={() => {
+              props.toggleMode("primary");
+            }}
+            style={{
+              height: "30px",
+              width: "30px",
+              cursor: "pointer",
+              border: "2px solid",
+            }}
+          ></div>
+          <div
+            className="bg-danger rounded mx-2"
+            onClick={() => {
+              props.toggleMode("danger");
+            }}
+            style={{
+              height: "30px",
+              width: "30px",
+              cursor: "pointer",
+              border: "2px solid",
+            }}
+          ></div>
+          <div
+            className="bg-success rounded mx-2"
+            onClick={() => {
+              props.toggleMode("success");
+            }}
+            style={{
+              height: "30px",
+              width: "30px",
+              cursor: "pointer",
+              border: "2px solid",
+            }}
+          ></div>
+          <div
+            className="bg-warning rounded mx-2"
+            onClick={() => {
+              props.toggleMode("warning");
+            }}
+            style={{
+              height: "30px",
+              width: "30px",
+              cursor: "pointer",
+              border: "2px solid",
+            }}
+          ></div>
+          <div
+            className="bg-light rounded mx-2"
+            onClick={() => {
+              props.toggleMode("light");
+            }}
+            style={{
+              height: "30px",
+              width: "30px",
+              cursor: "pointer",
+              border: "2px solid",
+            }}
+          ></div>
+          <div
+            className="bg-dark rounded mx-2"
+            onClick={() => {
+              props.toggleMode("dark");
+            }}
+            style={{
+              height: "30px",
+              width: "30px",
+              cursor: "pointer",
+              border: "2px solid",
+            }}
+          ></div>
+
           {/* <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
@@ -53,7 +127,7 @@ export default function Navbar(props) {
 
           {/* DARKMODE TOGGLE BUTTON USING BOOTSTRAP */}
 
-          <div
+          {/* <div
             className={`form-check form-switch text-${
               props.mode === "light" ? "dark" : "light"
             }`}
@@ -68,10 +142,11 @@ export default function Navbar(props) {
             <label
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
-            >
-              Enable {props.mode === "light" ? "Dark" : "Light"}Mode
+            > */}
+          {/* Enable {props.mode === "light" ? "Dark" : "Light"}Mode */}
+          {/* Toggle Mode
             </label>
-          </div>
+          </div> */}
         </div>
       </nav>
     </>
